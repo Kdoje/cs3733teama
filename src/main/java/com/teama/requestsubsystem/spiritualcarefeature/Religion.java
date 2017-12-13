@@ -5,7 +5,7 @@ package com.teama.requestsubsystem.spiritualcarefeature;
  */
 public enum Religion {
     CHRISTIANITY("Christianity"), CATHOLICISM("Catholicism"), MUSLIM("Muslim"), SIKHISM("Sikhism"),
-    JEWISH("Jewish"), HINDUISM("Hinduism"), BUDDHISM("Buddhism"), ISLAM("Islam"), OTHER("Other");
+    JUDAISM("Judaism"), HINDUISM("Hinduism"), BUDDHISM("Buddhism"), TAOISM("Taoism"), OTHER("Other");
 
     private String religion;
     Religion(String string){

@@ -77,7 +77,7 @@ public class SpiritualStaffDB implements StaffDataSource {
 */
 
         try {
-            addStaff = conn.prepareStatement("INSERT INTO " +  staffTable + "  (STAFFID, RELIGION VALUES(?, ?)");
+            addStaff = conn.prepareStatement("INSERT INTO " +  staffTable + "  (STAFFID, RELIGION) VALUES(?, ?)");
             getStaff = conn.prepareStatement("SELECT * FROM " +  staffTable + " WHERE STAFFID = ?");
             getAllStaff = conn.prepareStatement("SELECT * FROM " +  staffTable + " WHERE STAFFID = ?");
             getQualifiedStaff = conn.prepareStatement("SELECT * FROM " +  staffTable + " WHERE RELIGION = ?");
@@ -148,10 +148,12 @@ public class SpiritualStaffDB implements StaffDataSource {
             try {
                 getStaff.setInt(1, staffID);
                 ResultSet found = getStaff.executeQuery();
-                SpiritualCareStaff staff = new SpiritualCareStaff(general, Religion.getReligion(found.getString("RELIGION")));
-                if (staff != null && staff.getStaffID() != 0) {
-                    gotten = staff;
-                    log.info("Successfully found Spiritual Careperson with ID " + staffID);
+                if (found.next()) {
+                    SpiritualCareStaff staff = new SpiritualCareStaff(general, Religion.getReligion(found.getString("RELIGION")));
+                    if (staff != null && staff.getStaffID() != 0) {
+                        gotten = staff;
+                        log.info("Successfully found Spiritual Careperson with ID " + staffID);
+                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

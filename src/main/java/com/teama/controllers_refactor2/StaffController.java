@@ -1,5 +1,6 @@
 package com.teama.controllers_refactor2;
 
+import com.teama.controllers.SpiritualCareController;
 import com.teama.translator.Translator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +48,15 @@ public class StaffController extends StaffToolController{
                 intVBox.getChildren().clear();
             }
             intVBox.getChildren().add(interController.getParentVbox());
+
+            FXMLLoader spiritLoader = new FXMLLoader((getClass().getResource("/MainScreenDrawers/staffPanes/SpiritualEditor.fxml")));
+            spiritLoader.setResources(Translator.getInstance().getNewBundle());
+            spiritLoader.load();
+            SpiritEditorController spiritController = spiritLoader.getController();
+            if(spirVBox.getChildren()!=null){
+                spirVBox.getChildren().clear();
+            }
+            spirVBox.getChildren().add(spiritController.getParentVBox());
         }
         catch(IOException error){
             error.printStackTrace();

@@ -481,6 +481,7 @@ public class MainMapScreen implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/AboutPage.fxml"));
         try {
+            loader.setResources(Translator.getInstance().getNewBundle());
             Parent root = (Parent) loader.load();
             Scene aboutScene = new Scene(root);
             aboutPopUp.setScene(aboutScene);
@@ -502,6 +503,7 @@ public class MainMapScreen implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/HelpPage.fxml"));
         try {
+            loader.setResources(Translator.getInstance().getNewBundle());
             Parent root = (Parent) loader.load();
             Scene helpScene = new Scene(root);
             helpPopUp.setScene(helpScene);
