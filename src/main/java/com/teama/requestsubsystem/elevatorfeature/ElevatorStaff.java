@@ -130,14 +130,12 @@ public class ElevatorStaff implements ServiceStaff{
     }
 
 
-    /*
-    public String toString(){
-        String lang = "";
-        for(Language l: getLanguages()){
-            lang +=l.toString() + ", ";
-        }
-        return getFirstName()+" "+getLastName()+"\n"+lang;
-    }
-    */
 
+    public String toString(){
+        String type = "";
+        for(MaintenanceType t: getSpecialization()){
+            type +=t.toString() + ", ";
+        }
+        return getFirstName()+" "+getLastName()+"\n"+type;
+    }
 }

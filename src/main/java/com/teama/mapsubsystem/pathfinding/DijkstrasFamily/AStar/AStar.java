@@ -52,6 +52,7 @@ public class AStar extends Dijkstras {
         }
         // Done generating, output the path
         // make it into the format of outputting.
+        disableNodes= new HashMap<String, MapNode>();
         return formatOutput(collectPath(checking));
     }
 

@@ -131,7 +131,6 @@ public class PathfindingController {
         // Update the origin, end node and path without regenerating the path that was just created
         listen = false;
         ProgramSettings.getInstance().setCurrentDisplayedPathProp(path);
-        ProgramSettings.getInstance().setPathOriginNodeProp(origin);
         ProgramSettings.getInstance().setPathEndNodeProp(path.getEndNode());
         listen = true;
 
@@ -140,7 +139,6 @@ public class PathfindingController {
         drawingSubsystem.setViewportCenter(path.getNodes().get((path.getNodes().size()-1)/2).getCoordinate());
 
         // Open the directions pop out
-        mainSidebarMap.get(PopOutType.DIRECTIONS).handle(null);
 
     }
 }

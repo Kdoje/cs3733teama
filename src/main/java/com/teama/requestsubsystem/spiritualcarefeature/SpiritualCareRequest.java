@@ -147,4 +147,8 @@ public class SpiritualCareRequest implements Request {
     public void setLocalDate(LocalDate d){
         this.date = d;
     }
+
+    public String toString(){
+        return "Type: Spiritual Care \n" + "Location: " + getLocation().toString() + "\n" + "RequestStatus: "+ getReqType().toString() + "\n" + "Staff ID: "+ Integer.toString(getGenRequest().getStaffID());
+    }
 }
